@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import "./Form.css";
+import styles from "./Form.module.css";
 
 interface FormData {
   name: string;
@@ -37,37 +37,39 @@ const Form = () => {
   };
 
   return (
-    <div className="form">
-      <form onSubmit={handleSubmit(onSubmit)} className="form__body">
-        <div className="form__group">
-          <label htmlFor="name" className="form__label">
+    <div className={styles.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form__body}>
+        <div className={styles.form__group}>
+          <label htmlFor="name" className={styles.form__label}>
             Nombre:
           </label>
           <input
             type="text"
             id="name"
             {...register("name")}
-            className={`form__input ${errors.name ? "form__input--error" : ""}`}
+            className={`${styles.form__input} ${errors.name ? styles["form__input--error"] : ""}`}
           />
           {errors.name && (
-            <span className="form__error">{errors.name.message}</span>
+            <span className={styles.form__error}>{errors.name.message}</span>
           )}
         </div>
-        <div className="form__group">
-          <label htmlFor="email" className="form__label">
+
+        <div className={styles.form__group}>
+          <label htmlFor="email" className={styles.form__label}>
             Email:
           </label>
           <input
             type="text"
             id="email"
             {...register("email")}
-            className={`form__input ${errors.name ? "form__input--error" : ""}`}
+            className={`${styles.form__input} ${errors.email ? styles["form__input--error"] : ""}`}
           />
           {errors.email && (
-            <span className="form__error">{errors.email.message}</span>
+            <span className={styles.form__error}>{errors.email.message}</span>
           )}
         </div>
-        <button type="submit" className="form__button">
+
+        <button type="submit" className={styles.form__button}>
           Guardar
         </button>
       </form>
