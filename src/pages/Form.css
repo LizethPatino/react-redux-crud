@@ -1,0 +1,102 @@
+/* Bloque principal */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px; /* Evita que el formulario se pegue en móviles */
+  }
+  
+  /* Cuerpo del formulario */
+  .form__body {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px; /* Se ajusta en pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Agrupación de inputs */
+  .form__group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  /* Estilos de los inputs */
+  .form__input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    max-width: 100%; /* En móviles evita que el input sea más grande que el contenedor */
+    width: auto; /* Deja que el tamaño del input sea el necesario */
+  }
+  
+  .form__input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Modificador para inputs con error */
+  .form__input--error {
+    border-color: #dc3545 !important;
+    background-color: #ffe5e5;
+  }
+  
+  /* Mensajes de error */
+  .form__error {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Estilos del botón */
+  .form__button {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+  }
+  
+  .form__button:hover {
+    background: #0056b3;
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 400px) {
+    .form__body {
+      padding: 15px;
+    }
+  
+    .form__label {
+      font-size: 13px;
+    }
+  
+    .form__input {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .form__button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
