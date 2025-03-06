@@ -1,15 +1,12 @@
 import './App.css'
-import Form from "./components/Form";
-
+import CrudPage from './pages/CrudPage';
 
 function App() {
 
   return (
-    <>
       <div>
-        <Form></Form>
+       <CrudPage></CrudPage>
       </div>
-    </>
   )
 }
 
