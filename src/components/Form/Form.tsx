@@ -8,6 +8,16 @@ interface FormData {
   email: string;
 }
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface FormProps {
+  onAddUser: ( user:User) => void;
+}
+
 const schema = yup.object({
   name: yup
     .string()
@@ -20,7 +30,7 @@ const schema = yup.object({
     .required("El email es obligatorio"),
 });
 
-const Form = () => {
+const Form = ({onAddUser}: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -32,7 +42,9 @@ const Form = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    console.log(data, "info a enviar");
+    const newUser: User = { id: Date.now(), ...data };
+    console.log(newUser, "info a enviar");
+    onAddUser(newUser);
     reset();
   };
 

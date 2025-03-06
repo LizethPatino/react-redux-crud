@@ -21,10 +21,15 @@ const CrudPage = () =>{
         setUsers(users.filter( user => user.id !==userId));
     } 
 
+    const handleAddUser = (newUser: User) => {
+        setUsers([...users, {...newUser}]);
+        console.log(users,"mis users");
+    }
+
     return (
         <div>
             <h1>CRUD de usuarios</h1>
-             <Form></Form>
+             <Form onAddUser={handleAddUser}></Form>
              <Table data={users} onDelete={handleDeleteUser}></Table>
         </div>
     );
