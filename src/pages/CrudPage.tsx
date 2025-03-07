@@ -1,12 +1,7 @@
 import { useState } from "react";
 import Form from "../components/Form";
 import Table from "../components/Table";
-
-interface User {
-    id: number;
-    name: string;
-    email: string;
-  }
+import { User } from "../types";
 
 const CrudPage = () =>{
     const [users, setUsers]= useState<User[]>([

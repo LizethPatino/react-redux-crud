@@ -1,10 +1,5 @@
 import styles from "./Table.module.css";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import { User } from "../../types";
 
 interface TableProps {
   data: User[];
