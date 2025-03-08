@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 40vh;
     background-color: #f5f5f5;
     padding: 20px; /* Evita que el formulario se pegue en móviles */
   }
