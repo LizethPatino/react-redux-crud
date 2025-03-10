@@ -1,8 +1,13 @@
 import styles from "./Table.module.css";
 import { TableProps} from "../../types";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 
-const Table = ({ data, onDelete, onEdit }: TableProps) => {
+const Table = ({ onEdit }: TableProps) => {
+
+  const users = useSelector((state: RootState) => state.users.users);
+
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
@@ -15,7 +20,7 @@ const Table = ({ data, onDelete, onEdit }: TableProps) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
+          {users.map((row) => (
             <tr key={row.id}>
               <td>{row.id}</td>
               <td>{row.name}</td>

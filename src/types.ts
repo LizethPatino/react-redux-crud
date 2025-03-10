@@ -10,7 +10,6 @@ export interface FormData {
 }
 
 export interface FormProps {
-  onAddUser: ( user:User) => void;
   editingUser: User | null;
 }  
 
@@ -20,7 +19,5 @@ export interface ModalProps {
 }
 
 export interface TableProps {
-  data: User[];
-  onDelete: (id: number) => void;
   onEdit: (user: User) => void;
 }

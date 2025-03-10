@@ -4,6 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Form.module.css";
 import { User, FormProps, FormData } from "../../types"
+import { addUser } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
+
 
 const schema = yup.object({
   name: yup
@@ -17,7 +21,10 @@ const schema = yup.object({
     .required("El email es obligatorio"),
 });
 
-const Form = ({onAddUser, editingUser}: FormProps) => {
+const Form = ({editingUser}: FormProps) => {
+
+  const dispatch = useDispatch<AppDispatch>();
+  
   const {
     register,
     handleSubmit,
@@ -36,7 +43,7 @@ const Form = ({onAddUser, editingUser}: FormProps) => {
 
   const onSubmit = (data: FormData) => {
     const newUser: User = { id: editingUser? editingUser.id : Date.now(), ...data };
-    onAddUser(newUser);
+    dispatch(addUser(newUser));
     reset();
   };
 

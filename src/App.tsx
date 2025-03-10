@@ -1,12 +1,14 @@
+import { Provider } from 'react-redux';
 import './App.css'
 import CrudPage from './pages/CrudPage';
+import { store } from './store';
 
 function App() {
 
   return (
-      <div>
-       <CrudPage></CrudPage>
-      </div>
+      <Provider store={store}>
+          <CrudPage></CrudPage>
+      </Provider>
   )
 }
 
