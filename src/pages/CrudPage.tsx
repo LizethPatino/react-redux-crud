@@ -1,23 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import Table from "../components/Table";
 import Modal from "../components/Modal";
 import styles from "./CrudPage.module.css";
 import { User } from "../types";
+import fetchUsers  from "../services/userService";
 
 const CrudPage = () =>{
 
     const [ showModal, setShowModal] = useState<boolean>(false);
 
-    const [users, setUsers]= useState<User[]>([
-        { id: 1, name: "Juan Pérez", email: "juan@example.com" },
-        { id: 2, name: "Ana López", email: "ana@example.com" },
-        { id: 3, name: "Carlos Ruiz", email: "carlos@example.com" },
-        { id: 4, name: "Dante Patico", email: "dante@example.com" },
-        { id: 5, name: "Sasha Patico", email: "Sasha@example.com" },
-      ]);
+    const [users, setUsers]= useState<User[]>([]);
 
     const [editingUser, setEditingUser] = useState<User | null>(null);  
+
+    useEffect(()=>{
+        const loadUsers = async () =>{
+            const data = await fetchUsers();
+            if (data) setUsers(data);
+        } 
+       loadUsers();
+    },[])
+
 
     const handleDeleteUser = (userId: number) => {
         setUsers(users.filter( user => user.id !==userId));

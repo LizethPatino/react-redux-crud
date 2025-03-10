@@ -3,17 +3,7 @@ import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Form.module.css";
-import { User } from "../../types"
-
-interface FormData {
-  name: string;
-  email: string;
-}
-
-interface FormProps {
-  onAddUser: ( user:User) => void;
-  editingUser: User | null;
-}
+import { User, FormProps, FormData } from "../../types"
 
 const schema = yup.object({
   name: yup

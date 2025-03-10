@@ -1,11 +1,6 @@
 import styles from "./Table.module.css";
-import { User } from "../../types";
+import { TableProps} from "../../types";
 
-interface TableProps {
-  data: User[];
-  onDelete: (id: number) => void;
-  onEdit: (user: User) => void;
-}
 
 const Table = ({ data, onDelete, onEdit }: TableProps) => {
   return (
