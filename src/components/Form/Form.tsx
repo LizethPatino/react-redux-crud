@@ -84,7 +84,7 @@ const Form = ({onAddUser, editingUser}: FormProps) => {
         </div>
 
         <button type="submit" className={styles.form__button}>
-          Guardar
+         { editingUser ?  'Actualizar' : 'Guardar' }
         </button>
       </form>
     </div>
