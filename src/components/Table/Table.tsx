@@ -4,9 +4,10 @@ import { User } from "../../types";
 interface TableProps {
   data: User[];
   onDelete: (id: number) => void;
+  onEdit: (user: User) => void;
 }
 
-const Table = ({ data, onDelete }: TableProps) => {
+const Table = ({ data, onDelete, onEdit }: TableProps) => {
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
@@ -24,7 +25,8 @@ const Table = ({ data, onDelete }: TableProps) => {
               <td>{row.id}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
-              <td><button className={styles.deleteButton} onClick={()=>onDelete(row.id)}>Eliminar</button></td>
+              <td><button className={styles.editButton} onClick={()=>onEdit(row)}>Editar</button>
+              <button className={styles.deleteButton} onClick={()=>onDelete(row.id)}>Eliminar</button></td>
             </tr>
           ))}
         </tbody>

@@ -17,13 +17,27 @@ const CrudPage = () =>{
         { id: 5, name: "Sasha Patico", email: "Sasha@example.com" },
       ]);
 
+    const [editingUser, setEditingUser] = useState<User | null>(null);  
+
     const handleDeleteUser = (userId: number) => {
         setUsers(users.filter( user => user.id !==userId));
     } 
 
-    const handleAddUser = (newUser: User) => {
+    const handleSaveUser = (newUser: User) => {
+       if(editingUser){
+        setUsers(((prevUsers) =>
+             prevUsers.map( user=> ( user.id===editingUser.id ? newUser: user))));
+       }else{
         setUsers([...users, {...newUser}]);
-        setShowModal(false);
+       }
+       setShowModal(false);
+       setEditingUser(null);
+    }
+
+    const handleEditUser = (editableUser: User) => {
+        setShowModal(true);
+        setEditingUser(editableUser);
+
     }
 
     return (
@@ -32,11 +46,11 @@ const CrudPage = () =>{
             {
                 showModal && (
                    <Modal onClose={()=>{setShowModal(false)}}>
-                         <Form onAddUser={handleAddUser}></Form>
+                         <Form onAddUser={handleSaveUser} editingUser={editingUser}></Form>
                    </Modal> 
                 )
             }
-            <Table data={users} onDelete={handleDeleteUser}></Table>
+            <Table data={users} onDelete={handleDeleteUser} onEdit={handleEditUser}></Table>
             <button className={styles.add__button} onClick={()=>{setShowModal(true)}}>Agregar Usuario</button>
         </div>
     );

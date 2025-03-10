@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Form.module.css";
@@ -11,6 +12,7 @@ interface FormData {
 
 interface FormProps {
   onAddUser: ( user:User) => void;
+  editingUser: User | null;
 }
 
 const schema = yup.object({
@@ -25,7 +27,7 @@ const schema = yup.object({
     .required("El email es obligatorio"),
 });
 
-const Form = ({onAddUser}: FormProps) => {
+const Form = ({onAddUser, editingUser}: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -36,9 +38,14 @@ const Form = ({onAddUser}: FormProps) => {
     mode: "onSubmit",
   });
 
+  useEffect(()=>{
+    if (editingUser){
+      reset(editingUser);
+    }
+  }, [editingUser, reset])
+
   const onSubmit = (data: FormData) => {
-    const newUser: User = { id: Date.now(), ...data };
-    console.log(newUser, "info a enviar");
+    const newUser: User = { id: editingUser? editingUser.id : Date.now(), ...data };
     onAddUser(newUser);
     reset();
   };
