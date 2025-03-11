@@ -6,7 +6,6 @@ import styles from "./Form.module.css";
 import { User, FormProps, FormData } from "../../types";
 import { addUser, editUser } from "../../store/userSlice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store";
 
 const schema = yup.object({
   name: yup
@@ -21,7 +20,7 @@ const schema = yup.object({
 });
 
 const Form = ({ editingUser }: FormProps) => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -29,18 +28,13 @@ const Form = ({ editingUser }: FormProps) => {
     formState: { errors },
     reset,
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
-    mode: "onSubmit",
+    resolver: yupResolver(schema)
   });
 
-  // Prellenar el formulario si se está editando un usuario
   useEffect(() => {
-    if (editingUser) {
-      reset(editingUser);
-    } else {
-      reset({ name: "", email: "" }); // 👈 Limpia el formulario cuando no hay usuario en edición
-    }
+    reset(editingUser || { name: "", email: "" });
   }, [editingUser, reset]);
+  
   
 
   const onSubmit = (data: FormData) => {

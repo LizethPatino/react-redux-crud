@@ -1,6 +1,6 @@
 import styles from "./Table.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
+import { RootState } from "../../store";
 import { deleteUser } from "../../store/userSlice";
 import { TableProps } from "../../types";
 
@@ -9,7 +9,7 @@ const Table = ({ onEdit }: TableProps) => {
 
   const users = useSelector((state: RootState) => state.users.users);
   
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   const handleDeleteUser = (userId:number) => {
      dispatch(deleteUser(userId));
