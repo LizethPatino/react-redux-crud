@@ -29,7 +29,7 @@ const CrudPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.crud__container}>
       <h1>CRUD de usuarios</h1>
       {showModal && (
         <Modal
