@@ -40,7 +40,7 @@ Este proyecto es una aplicación web desarrollada con React y Redux que permite 
 ## 🛠 Instalación y Uso
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/proyecto-crud.git
+   git clone https://github.com/lizethPatino/proyecto-crud.git
    ```
 2. Entra en la carpeta del proyecto:
    ```bash
