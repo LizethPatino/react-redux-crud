@@ -1,12 +1,19 @@
 import styles from "./Table.module.css";
 import { TableProps} from "../../types";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../../store";
+import { deleteUser } from "../../store/userSlice";
 
 const Table = ({ onEdit }: TableProps) => {
 
+
   const users = useSelector((state: RootState) => state.users.users);
+  
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleDeleteUser = (userId:number) => {
+     dispatch(deleteUser(userId));
+  }
 
   return (
     <div className={styles.tableContainer}>
@@ -26,7 +33,7 @@ const Table = ({ onEdit }: TableProps) => {
               <td>{row.name}</td>
               <td>{row.email}</td>
               <td><button className={styles.editButton} onClick={()=>onEdit(row)}>Editar</button>
-              <button className={styles.deleteButton} onClick={()=>onDelete(row.id)}>Eliminar</button></td>
+              <button className={styles.deleteButton} onClick={()=>handleDeleteUser(row.id)}>Eliminar</button></td>
             </tr>
           ))}
         </tbody>
