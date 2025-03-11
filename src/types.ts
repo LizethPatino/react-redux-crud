@@ -7,6 +7,7 @@ export interface User {
 export interface FormData {
   name: string;
   email: string;
+  id?: number;
 }
 
 export interface FormProps {

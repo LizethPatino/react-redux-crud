@@ -1,8 +1,8 @@
 import styles from "./Table.module.css";
-import { TableProps} from "../../types";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../store";
 import { deleteUser } from "../../store/userSlice";
+import { TableProps } from "../../types";
 
 const Table = ({ onEdit }: TableProps) => {
 

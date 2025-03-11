@@ -25,27 +25,10 @@ const CrudPage = () =>{
        loadUsers();
     },[dispatch])
 
-
-   /* const handleDeleteUser = (userId: number) => {
-        setUsers(users.filter( user => user.id !==userId));
-    } */
-
-   /* const handleSaveUser = (newUser: User) => {
-       if(editingUser){
-        setUsers(((prevUsers) =>
-             prevUsers.map( user=> ( user.id===editingUser.id ? newUser: user))));
-       }else{
-        setUsers([...users, {...newUser}]);
-       }
-       setShowModal(false);
-       setEditingUser(null);
-    }*/
-
     const handleEditUser = (editableUser: User) => {
-        setShowModal(true);
         setEditingUser(editableUser);
-
-    }
+        setShowModal(true);
+      };
 
     return (
         <div>
@@ -57,8 +40,11 @@ const CrudPage = () =>{
                    </Modal> 
                 )
             }
-            <Table onEdit={handleEditUser}></Table>
-            <button className={styles.add__button} onClick={()=>{setShowModal(true)}}>Agregar Usuario</button>
+            <Table onEdit={handleEditUser} ></Table>
+            <button className={styles.add__button} onClick={() => {
+    setEditingUser(null);
+    setShowModal(true);
+  }}>Agregar Usuario</button>
         </div>
     );
 }
