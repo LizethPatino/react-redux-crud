@@ -1,73 +1,81 @@
-# Proyecto CRUD Avanzado con React, Redux y Validaciones
+# Advanced CRUD Project with React, Redux, and Validations
 
-## 📌 Descripción
-Este proyecto es una aplicación web desarrollada con React y Redux que permite la gestión de usuarios mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar). Sin embargo, va más allá de un CRUD básico al incluir:
-- **Validaciones avanzadas con Yup y React Hook Form**
-- **Gestión de estado con Redux Toolkit**
-- **Diseño modular con CSS puro**
-- **Componentización limpia y reutilizable**
+## 📌 Description
+This project is a web application developed with React and Redux that allows user management through CRUD operations (Create, Read, Update, Delete). However, it goes beyond a basic CRUD by including:
 
-## 🚀 Tecnologías Utilizadas
-- **React** con TypeScript
-- **Redux Toolkit** para la gestión del estado global
-- **React Hook Form** para la gestión de formularios
-- **Yup** para validaciones de datos
-- **CSS Modules** para estilos encapsulados
+- **Advanced validations with Yup and React Hook Form**
+- **State management with Redux Toolkit**
+- **Modular design with pure CSS**
+- **Clean and reusable componentization**
 
-## 📂 Estructura del Proyecto
+## 🚀 Technologies Used
+
+- **React** with TypeScript
+- **Redux Toolkit** for global state management
+- **React Hook Form** for form management
+- **Yup** for data validations
+- **CSS Modules** for encapsulated styles
+
+## 📂 Project Structure
+
 ```
 📦 proyecto-crud
 ├── 📂 components
-│   ├── 📜 Form.tsx       # Componente de formulario con validaciones
-│   ├── 📜 Table.tsx      # Componente para listar usuarios
-│   ├── 📜 Modal.tsx      # Componente de modal reutilizable
+│   ├── 📜 Form.tsx       # Form component with validations
+│   ├── 📜 Table.tsx      # Component to list users
+│   ├── 📜 Modal.tsx      # Reusable modal component
 ├── 📂 pages
-│   ├── 📜 CrudPage.tsx   # Página principal del CRUD
+│   ├── 📜 CrudPage.tsx   # Main CRUD page
 ├── 📂 store
-│   ├── 📜 userSlice.ts   # Estado y acciones de usuarios en Redux
+│   ├── 📜 userSlice.ts   # User state and actions in Redux
 ├── 📂 services
-│   ├── 📜 userService.ts # Simulación de API para obtener usuarios
+│   ├── 📜 userService.ts # API simulation to fetch users
 ├── 📂 types
-│   ├── 📜 index.ts       # Tipos de TypeScript usados en el proyecto
+│   ├── 📜 index.ts       # TypeScript types used in the project
 ├── 📂 styles
-│   ├── 📜 Form.module.css  # Estilos del formulario
-│   ├── 📜 Table.module.css # Estilos de la tabla
-│   ├── 📜 Modal.module.css # Estilos del modal
-├── 📜 README.md         # Documentación del proyecto
-├── 📜 package.json      # Dependencias y configuración
+│   ├── 📜 Form.module.css  # Form styles
+│   ├── 📜 Table.module.css # Table styles
+│   ├── 📜 Modal.module.css # Modal styles
+├── 📜 README.md         # Project documentation
+├── 📜 package.json      # Dependencies and configuration
 ```
 
-## 🛠 Instalación y Uso
-1. Clona el repositorio:
+## 🛠 Installation and Usage
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/lizethPatino/proyecto-crud.git
+   git clone https://github.com/lizethPatino/react-redux-crud.git
    ```
-2. Entra en la carpeta del proyecto:
+2. Navigate to the project folder:
    ```bash
-   cd proyecto-crud
+   cd react-redux-crud
    ```
-3. Instala las dependencias:
+3. Install the dependencies:
    ```bash
    npm install
    ```
-4. Inicia el servidor de desarrollo:
+4. Start the development server:
    ```bash
    npm run dev
    ```
-5. Abre en el navegador: `http://localhost:3000`
+5. Open in your browser: `http://localhost:3000`
 
-## 📌 Características
-✅ **Añadir usuarios con validaciones en tiempo real**
-✅ **Edición de usuarios con datos precargados**
-✅ **Eliminación de usuarios con actualización instantánea**
-✅ **Modal reutilizable para formularios**
-✅ **Diseño responsive y accesible**
+## 📌 Features
 
-## 📌 Mejoras Futuras
-🚀 **Test unitarios**
-🚀 **Integración con una API real**
-🚀 **Autenticación de usuarios**
-🚀 **Paginación y búsqueda avanzada**
+- ✅ **Add users with real-time validations**
+- ✅ **Edit users with pre-filled data**
+- ✅ **Delete users with instant updates**
+- ✅ **Reusable modal for forms**
+- ✅ **Responsive and accessible design**
 
-## 📄 Licencia
-Este proyecto está bajo la licencia MIT.
+## 📌 Future Improvements
+
+- 🚀 **Unit tests**
+- 🚀 **Integration with a real API**
+- 🚀 **User authentication**
+- 🚀 **Pagination and advanced search**
+
+## 📄 License
+
+This project is licensed under the MIT license.
+
